@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Flutter Free",
+        "request": "run",
+        "type": "flutter test",
+        "args": [
+          "--flavor",
+          "free"
+        ]
+      },
+      {
+        "name": "Flutter Pro",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main_pro.dart",
+        "args": [
+          "--flavor",
+          "pro"
+        ]
+      }
+    ]
+  }
