@@ -39,7 +39,7 @@ class _ReciptUpload extends State<ReciptUpload> {
   }
 
   Future<http.Response> UploadImage() async {
-    var imageApiUrl = Uri.parse("https://2999-211-219-61-185.ngrok.io/upload");
+    var imageApiUrl = Uri.parse("https://881d-211-219-61-185.ngrok.io/upload");
     var request = http.MultipartRequest("POST", imageApiUrl);
     print(_image!.path
         .split('/')
@@ -66,7 +66,7 @@ class _ReciptUpload extends State<ReciptUpload> {
       ScannerLabelsConfig.ANDROID_OK_LABEL: " OK"
     });
     if (image != null) {
-      _image = image;
+      _image = File(image.path);
       // Upload(_scannedImage!); // since the imageFile must not be null, we should allow
       setState(() {});
     }
@@ -81,9 +81,11 @@ class _ReciptUpload extends State<ReciptUpload> {
             body:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               // center box에 이미지를 보여줄수 있게
-              SizedBox(height: 25.0),
+              SizedBox(
+                  height:
+                      50.0), // image크기가 너무 크기 때문에 Canvas error이 발생했는데 이게 발생하지 않게 하기 위해서 Sized Box의 높이를 infinite로 설정해주었지만 이렇게 하면 null에러가 발생한다.
               showImage(),
-              SizedBox(height: 50.0),
+              SizedBox(height: 100.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
