@@ -39,7 +39,7 @@ class _ReciptUpload extends State<ReciptUpload> {
   }
 
   Future<http.Response> UploadImage() async {
-    var imageApiUrl = Uri.parse("https://881d-211-219-61-185.ngrok.io/upload");
+    var imageApiUrl = Uri.parse("https://f015-211-219-61-185.ngrok.io/upload");
     var request = http.MultipartRequest("POST", imageApiUrl);
     print(_image!.path
         .split('/')
